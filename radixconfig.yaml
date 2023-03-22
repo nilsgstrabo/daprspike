@@ -13,6 +13,13 @@ spec:
       ports:
         - name: http
           port: 8080
+      publicPort: http
+      authentication:
+        oauth2:
+          clientId: 5e48ca1f-a2bf-4dec-b96d-bbf8ce69f9f6
+          sessionStoreType: redis
+          redisStore:
+            connectionUrl: redis://redis-oauth:6379
     - name: python-sub
       src: ./python-subscriber
       ports:
@@ -32,6 +39,13 @@ spec:
           port: 5005
     - name: redis
       image: bitnami/redis:7.0
+      secrets:
+        - "REDIS_PASSWORD"
+      ports:
+        - name: http
+          port: 6379
+    - name: redis
+      image: bitnami/redis-oauth:7.0
       secrets:
         - "REDIS_PASSWORD"
       ports:
