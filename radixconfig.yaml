@@ -9,7 +9,9 @@ spec:
         from: main
   components:
     - name: redis
-      image: redis:7-alpine3.17
+      image: bitnami/redis:7.0
+      secrets:
+        - "REDIS_PASSWORD"
       ports:
         - name: http
           port: 6379
