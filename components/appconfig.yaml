@@ -2,12 +2,16 @@ apiVersion: dapr.io/v1alpha1
 kind: Configuration
 metadata:
   name: appconfig
+  namespace: daprspike-dev
 spec:
   secrets:
     scopes:
       - storeName: kubernetes
         allowedSecrets:
           - "redis-xyjsglhe"
+  logging:
+    apiLogging:
+      enabled: true
   tracing:
     samplingRate: "1"
     zipkin:

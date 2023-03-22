@@ -5,3 +5,4 @@ spec:
         dapr.io/enabled: "true"
         dapr.io/app-id: "frontend"
         dapr.io/app-port: "8080"
+        dapr.io/config: "appconfig"
