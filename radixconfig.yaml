@@ -8,6 +8,28 @@ spec:
       build:
         from: main
   components:
+    - name: frontend
+      src: ./react-form
+      ports:
+        - name: http
+          port: 8080
+    - name: python-sub
+      src: ./python-subscriber
+      ports:
+        - name: http
+          port: 5001
+    - name: node-sub
+      src: ./node-subscriber
+      ports:
+        - name: http
+          port: 3000
+    - name: dotnet-sub
+      src: ./csharp-subscriber
+      variables:
+        ASPNETCORE_URLS: http://*:5005
+      ports:
+        - name: http
+          port: 5005
     - name: redis
       image: bitnami/redis:7.0
       secrets:
@@ -16,7 +38,7 @@ spec:
         - name: http
           port: 6379
     - name: zipkin
-      dockerfileName: Dockerfile.zipkin
+      src: ./zipkin
       ports:
         - name: http
           port: 9411
