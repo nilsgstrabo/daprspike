@@ -1,0 +1,22 @@
+apiVersion: radix.equinor.com/v1
+kind: RadixApplication
+metadata:
+  name: dapr-spike
+spec:
+  environments:
+    - name: dev
+      build:
+        from: main
+  components:
+    - name: redis
+      image: redis:7-alpine3.17
+      ports:
+        - name: http
+          port: 6379
+    - name: zipkin
+      image: openzipkin/zipkin:2
+      ports:
+        - name: http
+          port: 9411
+     
+      
