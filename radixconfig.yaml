@@ -14,22 +14,30 @@ spec:
         - name: http
           port: 8080
       publicPort: http
+      resources:
+        requests:
+          cpu: 100m
+          memory: 100M
       authentication:
         oauth2:
           clientId: 5e48ca1f-a2bf-4dec-b96d-bbf8ce69f9f6
           sessionStoreType: redis
           redisStore:
             connectionUrl: redis://redis-oauth:6379
-    - name: python-sub
-      src: ./python-subscriber
-      ports:
-        - name: http
-          port: 5001
+    # - name: python-sub
+    #   src: ./python-subscriber
+    #   ports:
+    #     - name: http
+    #       port: 5001
     - name: node-sub
       src: ./node-subscriber
       ports:
         - name: http
           port: 3000
+      resources:
+        requests:
+          cpu: 100m
+          memory: 100M
     - name: dotnet-sub
       src: ./csharp-subscriber
       variables:
@@ -44,6 +52,10 @@ spec:
       ports:
         - name: http
           port: 6379
+      resources:
+        requests:
+          cpu: 100m
+          memory: 100M
     - name: redis-oauth
       image: bitnami/redis:7.0
       secrets:
@@ -51,10 +63,18 @@ spec:
       ports:
         - name: http
           port: 6379
+      resources:
+        requests:
+          cpu: 100m
+          memory: 100M
     - name: zipkin
       src: ./zipkin
       ports:
         - name: http
           port: 9411
+      resources:
+        requests:
+          cpu: 100m
+          memory: 100M
      
       

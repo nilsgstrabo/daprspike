@@ -1,0 +1,14 @@
+apiVersion: dapr.io/v1alpha1
+kind: Configuration
+metadata:
+  name: appconfig
+spec:
+  secrets:
+    scopes:
+      - storeName: kubernetes
+        allowedSecrets:
+          - "redis-xyjsglhe"
+  tracing:
+    samplingRate: "1"
+    zipkin:
+      endpointAddress: "http://zipkin:9411/api/v2/spans"

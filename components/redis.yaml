@@ -2,6 +2,7 @@ apiVersion: dapr.io/v1alpha1
 kind: Component
 metadata:
   name: pubsub
+  namespace: daprspike-dev
 spec:
   type: pubsub.redis
   version: v1
@@ -15,5 +16,4 @@ spec:
     value: redis:6379
   - name: redisPassword
     value: "12345"
-auth:
-  secretStore: kubernetes
+

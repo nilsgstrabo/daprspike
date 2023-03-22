@@ -3,5 +3,5 @@ spec:
     metadata:
       annotations:
         dapr.io/enabled: "true"
-        dapr.io/app-id: "dotnet-sub"
-        dapr.io/app-port: "5005"
+        dapr.io/app-id: "frontend"
+        dapr.io/app-port: "8080"
