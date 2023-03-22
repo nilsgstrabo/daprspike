@@ -20,8 +20,15 @@ const pubsubName = 'pubsub';
 // Publish to topic (messageType) using Dapr pub-sub
 app.post('/publish', async (req, res) => {
   console.log("Publishing: ", req.body);
-  await axios.post(`${daprUrl}/publish/${pubsubName}/${req.body?.messageType}`, req.body);
-  return res.sendStatus(200);
+  try {
+    await axios.post(`${daprUrl}/publish/${pubsubName}/${req.body?.messageType}`, req.body);
+    return res.sendStatus(200);
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500);
+  }
+  
+  
 });
 
 // Serve static files
