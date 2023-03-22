@@ -6,3 +6,5 @@ spec:
         dapr.io/app-id: "node-sub"
         dapr.io/app-port: "3000"
         dapr.io/config: "appconfig"
+    spec:
+      automountServiceAccountToken: true        

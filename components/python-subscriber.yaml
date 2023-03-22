@@ -6,3 +6,5 @@ spec:
         dapr.io/app-id: "python-sub"
         dapr.io/app-port: "5001"
         dapr.io/config: "appconfig"
+    spec:
+      automountServiceAccountToken: true

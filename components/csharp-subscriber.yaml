@@ -6,3 +6,5 @@ spec:
         dapr.io/app-id: "dotnet-sub"
         dapr.io/app-port: "5005"
         dapr.io/config: "appconfig"
+    spec:
+      automountServiceAccountToken: true        
