@@ -24,11 +24,15 @@ spec:
           sessionStoreType: redis
           redisStore:
             connectionUrl: redis://redis-oauth:6379
-    # - name: python-sub
-    #   src: ./python-subscriber
-    #   ports:
-    #     - name: http
-    #       port: 5001
+    - name: python-sub
+      src: ./python-subscriber
+      ports:
+        - name: http
+          port: 5001
+      resources:
+        requests:
+          cpu: 100m
+          memory: 100M          
     - name: node-sub
       src: ./node-subscriber
       ports:
