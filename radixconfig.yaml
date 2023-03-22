@@ -44,8 +44,8 @@ spec:
       ports:
         - name: http
           port: 6379
-    - name: redis
-      image: bitnami/redis-oauth:7.0
+    - name: redis-oauth
+      image: bitnami/redis:7.0
       secrets:
         - "REDIS_PASSWORD"
       ports:
