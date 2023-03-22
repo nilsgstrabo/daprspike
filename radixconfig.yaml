@@ -16,7 +16,7 @@ spec:
         - name: http
           port: 6379
     - name: zipkin
-      image: openzipkin/zipkin:2
+      dockerfileName: Dockerfile.zipkin
       ports:
         - name: http
           port: 9411
