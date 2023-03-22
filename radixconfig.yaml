@@ -49,6 +49,22 @@ spec:
       ports:
         - name: http
           port: 5005
+    - name: zipkin
+      src: ./zipkin
+      ports:
+        - name: http
+          port: 9411
+      publicPort: http
+      authentication:
+        oauth2:
+          clientId: 5e48ca1f-a2bf-4dec-b96d-bbf8ce69f9f6
+          sessionStoreType: redis
+          redisStore:
+            connectionUrl: redis://redis-oauth-zipkin:6379
+      resources:
+        requests:
+          cpu: 100m
+          memory: 100M          
     - name: redis
       image: bitnami/redis:7.0
       secrets:
@@ -71,14 +87,17 @@ spec:
         requests:
           cpu: 100m
           memory: 100M
-    - name: zipkin
-      src: ./zipkin
+    - name: redis-oauth-zipkin
+      image: bitnami/redis:7.0
+      secrets:
+        - "REDIS_PASSWORD"
       ports:
         - name: http
-          port: 9411
+          port: 6379
       resources:
         requests:
           cpu: 100m
-          memory: 100M
+          memory: 100M          
+
      
       
