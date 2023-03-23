@@ -4,14 +4,18 @@ metadata:
   name: appconfig
   namespace: daprspike-dev
 spec:
-  secrets:
-    scopes:
-      - storeName: kubernetes
-        allowedSecrets:
-          - "redis-xyjsglhe"
+  # secrets:
+  #   scopes:
+  #     - storeName: kubernetes
+  #       allowedSecrets:
+  #         - "redis-xyjsglhe"
+  
+  mtls:
+    enabled: true
   logging:
     apiLogging:
       enabled: true
+      omitHealthChecks: true
   tracing:
     samplingRate: "1"
     zipkin:

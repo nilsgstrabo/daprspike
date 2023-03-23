@@ -16,4 +16,9 @@ spec:
     value: redis:6379
   - name: redisPassword
     value: "12345"
+    # secretKeyRef:
+    #   key: REDIS_PASSWORD
+    #   name: redis-xyjsglhe
+# auth:
+#   secretStore: kubernetes
 
