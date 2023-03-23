@@ -1,3 +1,5 @@
+After each deployment to Radix, apply the following scripts. This will disable Pod Security Policy for the namespace and add required annotations to deployments to inject DAPR sidecars.
+
 1. Set Pod Security Standard enforce=privileged `kubectl label ns daprspike-dev "pod-security.kubernetes.io/enforce"=privileged --overwrite`
 1. Apply DAPR configuration. `kubectl apply -f ./appconfig.yaml`
 1. Apply pubsub redis configuration. `kubectl apply -f ./redis.yaml`
