@@ -1,3 +1,15 @@
+# Install DAPR
+
+```shell
+helm upgrade --install dapr dapr/dapr \
+--version=1.10 \
+--namespace dapr-system \
+--create-namespace \
+--wait
+```
+
+# Post deployment steps
+
 After each deployment to Radix, apply the following scripts. This will disable Pod Security Policy for the namespace and add required annotations to deployments to inject DAPR sidecars.
 
 1. Set Pod Security Standard enforce=privileged `kubectl label ns daprspike-dev "pod-security.kubernetes.io/enforce"=privileged --overwrite`
